@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Steps
-public class TradingServiceWebSteps {
+public class FeedbackServiceWebSteps {
 
     @BeforeStories
     public void openApp() {

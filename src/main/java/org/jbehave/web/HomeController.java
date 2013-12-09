@@ -24,23 +24,15 @@ public class HomeController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String showForm(Model model) {
 		model.addAttribute("feedbackInfo", new FeedbackForm());
-		return "newstock";
+		return "newfeedback";
 	}
 	
-	/**
-	 * Simply gets a new stock and shows current status.
-	 * @return view.
-	 */
 	@RequestMapping(value="/", method=RequestMethod.POST )
 	public ModelAndView submitForm(@ModelAttribute("feedbackInfo")FeedbackForm feedbackForm) {
 
 		Feedback feedback = feedbackService.addNewFeedback(feedbackForm.getSender(), feedbackForm.getRecipient(), feedbackForm.getFeedback());
-		return new ModelAndView("newstock", "feedback", feedback);
+		return new ModelAndView("newfeedback", "feedback", feedback);
 	}
 	
-//	public Feedback getFeedback(String threshold, String tradeAt) {
-//		return this.tradingService.addNewFeedback(threshold, tradeAt);
-//	}
-
 }
 

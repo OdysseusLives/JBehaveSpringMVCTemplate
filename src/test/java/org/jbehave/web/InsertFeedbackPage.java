@@ -25,7 +25,7 @@ public class InsertFeedbackPage {
 		pageUtils.submitForm(SUBMIT_FORM_ID);		
 	}
 	
-	public void setStockUrl(String url) {
+	public void setFeedbackUrl(String url) {
 		this.stockUrl = url;
 	}
 

@@ -19,8 +19,8 @@ import org.junit.runner.RunWith;
 @Configure(parameterConverters=ParameterConverters.EnumConverter.class)
 @UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = false, ignoreFailureInView = false)
 @UsingSpring(resources = { "org/jbehave/business/configuration.xml",
-           "org/jbehave/web/tradingService-webacceptancetest.xml" })
-public class TraderIsAlertedWebStories extends InjectableEmbedder {
+        "org/jbehave/web/feedbackService-webacceptancetest.xml"})
+public class UserSubmitsAndViewsFeedbackWebStories extends InjectableEmbedder {
 
 	@Test
 	public void run() throws Throwable {

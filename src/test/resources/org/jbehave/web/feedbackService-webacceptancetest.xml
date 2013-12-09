@@ -16,11 +16,7 @@
 	
 	<bean id="insertFeedbackPage" class="org.jbehave.web.InsertFeedbackPage">
 		<qualifier value="insertFeedbackPage"></qualifier>
-		<property name="stockUrl" value="http://localhost:8080/"></property>
-	</bean>
-	
-	<bean id="showStatusStockPage" class="org.jbehave.web.ShowStockStatusPage">
-		<qualifier value="showStatusStockPage"></qualifier>
+		<property name="feedbackUrl" value="http://localhost:8080/"></property>
 	</bean>
 	
 </beans>
