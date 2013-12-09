@@ -1,28 +1,15 @@
 package org.jbehave.business;
 
-import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.jbehave.web.InsertFeedbackPage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
-import org.jbehave.business.Steps;
-import org.jbehave.core.annotations.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Steps
 public class FeedbackServiceBusinessSteps {
-
     @Autowired
     private FeedbackServiceImpl feedbackService;
     private Feedback feedback;
@@ -57,6 +44,4 @@ public class FeedbackServiceBusinessSteps {
     public void viewSender() {
         assertThat(feedback.getSender(), is(expectedFeedback.getSender()));
     }
-
-
 }
