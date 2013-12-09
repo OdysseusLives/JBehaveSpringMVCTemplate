@@ -1,12 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Insert title here</title>
+	<link href="../../scripts/css/feedback.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<form:form id="feedback_form" modelAttribute="feedbackInfo">
@@ -44,20 +45,27 @@
 	</form:form>
 
 
-    Sender:
-    <div id="sender_1">
-        <c:out value="${feedback.sender}"></c:out>
-    </div>
+	<c:if test="${not empty feedback}">
+        <div class="feedback_value">
+            Sender:
+            <span id="sender_1">
+                <c:out value="${feedback.sender}"></c:out>
+            </span>
+        </div>
 
-    Recipient:
-    <div id="recipient_1">
-        <c:out value="${feedback.recipient}"></c:out>
-    </div>
+        <div class="feedback_value">
+            Recipient:
+            <span id="recipient_1">
+                <c:out value="${feedback.recipient}"></c:out>
+            </span>
+        </div>
 
-    Feedback:
-    <div id="feedback_1">
-        <c:out value="${feedback.feedbackDescription}"></c:out>
-    </div>
-
+        <div class="feedback_value">
+            Feedback:
+            <span id="feedback_1">
+                <c:out value="${feedback.feedbackDescription}"></c:out>
+            </span>
+        </div>
+	</c:if>
 </body>
 </html>
