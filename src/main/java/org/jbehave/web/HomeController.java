@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 /**
  * Handles requests for the application home page.
  */
@@ -31,7 +33,9 @@ public class HomeController {
 	public ModelAndView submitForm(@ModelAttribute("feedbackInfo")FeedbackForm feedbackForm) {
 
 		Feedback feedback = feedbackService.addNewFeedback(feedbackForm.getSender(), feedbackForm.getRecipient(), feedbackForm.getFeedback());
-		return new ModelAndView("newfeedback", "feedback", feedback);
+        ArrayList<Feedback> feedbacks = feedbackService.getFeedbacks();
+
+        return new ModelAndView("newfeedback", "feedbacks", feedbacks);
 	}
 	
 }

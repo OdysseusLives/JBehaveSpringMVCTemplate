@@ -11,61 +11,46 @@
 </head>
 <body>
 	<form:form id="feedback_form" modelAttribute="feedbackInfo">
-		<table>
-			<tr>
-				<td>
-					Sender:
-				</td>
-				<td>
-					<form:input path="sender"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Recipient:
-				</td>
-				<td>
-					<form:input path="recipient"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Feedback:
-				</td>
-				<td>
-					<form:input path="feedback"/>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					 <input id="submit" type="submit" value="Submit" />
-				</td>
-			</tr>
-		</table>
+        <div>Sender: <form:input path="sender"/></div>
+        <div>Recipient: <form:input path="recipient"/></div>
+        <div>Feedback: <form:input path="feedback"/></div>
+        <input id="submit" type="submit" value="Submit" />
 	</form:form>
 
+    <c:if test="${not empty feedbacks}">
+        <hr>
 
-	<c:if test="${not empty feedback}">
-        <div class="feedback_value">
-            Sender:
-            <span id="sender_1">
-                <c:out value="${feedback.sender}"></c:out>
-            </span>
-        </div>
+        <h2>Feedback:</h2>
 
-        <div class="feedback_value">
-            Recipient:
-            <span id="recipient_1">
-                <c:out value="${feedback.recipient}"></c:out>
-            </span>
-        </div>
+        <c:set var="count" value="0" scope="page" />
+        <c:forEach var="feedback" items="${feedbacks}">
+            <div>Feedback <c:out value="${count}"></c:out></div>
 
-        <div class="feedback_value">
-            Feedback:
-            <span id="feedback_1">
-                <c:out value="${feedback.feedbackDescription}"></c:out>
-            </span>
-        </div>
+            <div class="feedback_value">
+                Sender:
+                <span id="sender_<c:out value="${count}"></c:out>">
+                    <c:out value="${feedback.sender}"></c:out>
+                </span>
+            </div>
+
+            <div class="feedback_value">
+                Recipient:
+                <span id="recipient_<c:out value="${count}"></c:out>">
+                    <c:out value="${feedback.recipient}"></c:out>
+                </span>
+            </div>
+
+            <div class="feedback_value">
+                Feedback:
+                <span id="feedback_<c:out value="${count}"></c:out>">
+                    <c:out value="${feedback.feedbackDescription}"></c:out>
+                </span>
+            </div>
+
+            <hr>
+
+            <c:set var="count" value="${count + 1}" scope="page"/>
+        </c:forEach>
 	</c:if>
 </body>
 </html>

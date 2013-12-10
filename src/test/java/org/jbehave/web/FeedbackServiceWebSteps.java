@@ -25,6 +25,16 @@ public class FeedbackServiceWebSteps {
 	@Qualifier("insertFeedbackPage")
 	private InsertFeedbackPage insertFeedbackPage;
 
+    @Given("that I have already submitted a feedback")
+    public void submittedFeedback() {
+        submitCompleteFeedback();
+    }
+
+    @When("I try to submit another feedback")
+    public void submitAnotherFeedback() {
+        submitCompleteFeedback();
+    }
+
     @When("I submit a feedback with my name, the recipient’s name and the feedback")
     public void submitCompleteFeedback() {
         insertFeedbackPage.fillFeedback("myName", "anotherPerson", "Yay!");
@@ -46,5 +56,11 @@ public class FeedbackServiceWebSteps {
         assertThat(insertFeedbackPage.viewSender("sender_1"), containsString("myName"));
     }
 
+    @Then("I should see my previous feedback")
+    public void viewPreviousFeedback() {
+        viewFeedback();
+        viewRecipient();
+        viewSender();
+    }
 
 }
