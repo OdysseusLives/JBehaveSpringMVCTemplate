@@ -1,0 +1,28 @@
+How to download and run the project:
+
+        (1) Clone it from the GitHub repo
+            $ git clone https://github.com/BillSchofield/JBehaveSpringMVCTemplate.git
+
+        (2) Open project with IntelliJ
+            Import project
+            Import project from external model > Select Maven > Next
+            [v] Search for projects recursively
+            [v] Import Maven projects automatically
+            Configure Spring framework
+
+How to set up the server:
+
+        (1) Go to Run > Edit configurations > Add New Configuration (+)
+            > Select TomCat Server > Select Local > Go to Deployment tab
+            > Click + > Artifact > Select web:war exploded > OK
+
+        (2) Run server, then run all tests again
+
+How to run the server from command line:
+
+        $ mvn tomcat7:run-war
+
+How to run acceptance tests from command line:
+
+        (make sure server is already set up)
+        $ mvn integration-test

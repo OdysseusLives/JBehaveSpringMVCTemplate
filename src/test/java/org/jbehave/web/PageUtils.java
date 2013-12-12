@@ -12,7 +12,7 @@ public class PageUtils {
 	public void open(String url) {
 		webDriver.get(url);
 	}
-	
+
 	public void fillFormField(String fieldId, String content) {
 		WebElement element = webDriver.findElement(id(fieldId));
 		element.clear();
@@ -34,7 +34,6 @@ public class PageUtils {
 	}
 
     public void close() {
-        this.webDriver.quit();
+        webDriver.quit();
     }
-	
 }
